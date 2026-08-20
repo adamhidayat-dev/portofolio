@@ -55,49 +55,49 @@ export function NavPill() {
     <>
       <GlassDistortion />
       <div className="fixed top-5 sm:top-6 md:top-7 left-1/2 -translate-x-1/2 z-50 max-w-[95vw]">
-        <GlassButton rounded="rounded-full" className="p-1.5 sm:p-2 transition-all duration-500 shadow-lg">
-          <div className="flex items-center justify-center gap-1 sm:gap-1.5 md:gap-2 rounded-full p-0.5 sm:p-1">
-            {items.map((item) => {
-              const isActive = pathname === item.href
-              return (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={(e) => {
-                    e.preventDefault()
-                    if (pathname !== item.href) startTransition(item.href)
-                  }}
-                  className={`flex items-center px-2.5 sm:px-3.5 md:px-4 py-1.5 sm:py-2 rounded-full transition-all duration-300 hover:scale-[1.03] cursor-pointer group ${
-                    isActive
-                      ? "bg-[#161616] text-white shadow-sm"
-                      : "bg-white/10 text-palette-stone hover:bg-[#161616] hover:text-white"
-                  }`}
-                  style={{
-                    transformOrigin: "center center",
-                    transitionTimingFunction: "cubic-bezier(0.175, 0.885, 0.32, 2.2)",
-                  }}
-                  title={item.label}
-                >
-                  {item.icon}
-                  <span
-                    className={`ml-1.5 sm:ml-2 text-xs md:text-sm font-medium tracking-wide ${
-                      isActive ? "inline" : "hidden sm:inline"
+        <div className="relative">
+          <GlassButton rounded="rounded-full" className="p-1 sm:p-1.5 overflow-hidden transition-all duration-500 shadow-lg">
+            <div className="flex items-center justify-center gap-1 sm:gap-1.5 md:gap-2 rounded-full p-0.5 sm:p-1">
+              {items.map((item) => {
+                const isActive = pathname === item.href
+                return (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onClick={(e) => {
+                      e.preventDefault()
+                      if (pathname !== item.href) startTransition(item.href)
+                    }}
+                    className={`flex items-center px-2.5 sm:px-3.5 md:px-4 py-1.5 sm:py-2 rounded-full transition-all duration-300 hover:scale-[1.02] cursor-pointer group ${
+                      isActive
+                        ? "bg-[#161616] text-white shadow-sm"
+                        : "bg-white/10 text-palette-stone hover:bg-[#161616] hover:text-white"
                     }`}
+                    style={{
+                      transformOrigin: "center center",
+                      transitionTimingFunction: "cubic-bezier(0.175, 0.885, 0.32, 2.2)",
+                    }}
+                    title={item.label}
                   >
-                    {item.label}
-                  </span>
-                </a>
-              )
-            })}
+                    {item.icon}
+                    <span
+                      className={`ml-1.5 sm:ml-2 text-xs md:text-sm font-medium tracking-wide ${
+                        isActive ? "inline" : "hidden sm:inline"
+                      }`}
+                    >
+                      {item.label}
+                    </span>
+                  </a>
+                )
+              })}
 
-            {/* Separator */}
-            <div className="w-[1px] h-4 sm:h-5 bg-[#161616]/20 mx-0.5" />
+              {/* Separator */}
+              <div className="w-[1px] h-4 sm:h-5 bg-[#161616]/20 mx-0.5" />
 
-            {/* Compact Vertical Glass Card Language Switcher */}
-            <div className="relative">
+              {/* Compact Vertical Glass Card Language Switcher */}
               <button
                 onClick={() => setShowDropdown((prev) => !prev)}
-                className={`flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-full transition-all duration-300 hover:scale-[1.03] text-xs md:text-sm cursor-pointer select-none ${
+                className={`flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-full transition-all duration-300 hover:scale-[1.02] text-xs md:text-sm cursor-pointer select-none ${
                   showDropdown
                     ? "bg-[#161616] text-white shadow-sm"
                     : "bg-white/10 text-palette-stone hover:bg-[#161616] hover:text-white"
@@ -111,44 +111,45 @@ export function NavPill() {
                   className={`transition-transform duration-300 ${showDropdown ? "rotate-180" : ""}`}
                 />
               </button>
-
-              {showDropdown && (
-                <div
-                  className="absolute top-full right-0 mt-3 z-50 select-none animate-in fade-in slide-in-from-top-2 duration-200"
-                  onMouseLeave={() => setShowDropdown(false)}
-                >
-                  <GlassButton rounded="rounded-2xl" className="p-1.5 min-w-[140px] shadow-xl">
-                    <div className="flex flex-col gap-1 w-full text-[#161616]">
-                      {languages.map((item) => {
-                        const isSelected = lang === item.code
-                        return (
-                          <button
-                            key={item.code}
-                            onClick={() => {
-                              setLang(item.code)
-                              setShowDropdown(false)
-                            }}
-                            className={`flex items-center justify-between w-full px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-300 cursor-pointer ${
-                              isSelected
-                                ? "bg-[#161616] text-white font-bold shadow-md"
-                                : "bg-white/10 text-palette-stone hover:bg-[#161616]/90 hover:text-white"
-                            }`}
-                          >
-                            <div className="flex items-center gap-2.5">
-                              <span className="flex items-center">{item.flag}</span>
-                              <span>{item.name}</span>
-                            </div>
-                            {isSelected && <span className="text-[10px] font-mono opacity-80">✓</span>}
-                          </button>
-                        )
-                      })}
-                    </div>
-                  </GlassButton>
-                </div>
-              )}
             </div>
-          </div>
-        </GlassButton>
+          </GlassButton>
+
+          {/* Dropdown Menu - Placed outside overflow-hidden GlassButton */}
+          {showDropdown && (
+            <div
+              className="absolute top-full right-0 mt-3 z-50 select-none animate-in fade-in slide-in-from-top-2 duration-200"
+              onMouseLeave={() => setShowDropdown(false)}
+            >
+              <GlassButton rounded="rounded-2xl" className="p-1.5 min-w-[140px] shadow-xl">
+                <div className="flex flex-col gap-1 w-full text-[#161616]">
+                  {languages.map((item) => {
+                    const isSelected = lang === item.code
+                    return (
+                      <button
+                        key={item.code}
+                        onClick={() => {
+                          setLang(item.code)
+                          setShowDropdown(false)
+                        }}
+                        className={`flex items-center justify-between w-full px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-300 cursor-pointer ${
+                          isSelected
+                            ? "bg-[#161616] text-white font-bold shadow-md"
+                            : "bg-white/10 text-palette-stone hover:bg-[#161616]/90 hover:text-white"
+                        }`}
+                      >
+                        <div className="flex items-center gap-2.5">
+                          <span className="flex items-center">{item.flag}</span>
+                          <span>{item.name}</span>
+                        </div>
+                        {isSelected && <span className="text-[10px] font-mono opacity-80">✓</span>}
+                      </button>
+                    )
+                  })}
+                </div>
+              </GlassButton>
+            </div>
+          )}
+        </div>
       </div>
     </>
   )
