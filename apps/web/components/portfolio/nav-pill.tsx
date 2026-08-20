@@ -54,9 +54,9 @@ export function NavPill() {
   return (
     <>
       <GlassDistortion />
-      <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
-        <GlassButton rounded="rounded-full" className="p-1.5 transition-all duration-500">
-          <div className="flex items-center justify-center gap-1.5 md:gap-2 rounded-full p-1">
+      <div className="fixed top-3 sm:top-6 left-1/2 -translate-x-1/2 z-50 max-w-[95vw]">
+        <GlassButton rounded="rounded-full" className="p-1 sm:p-1.5 transition-all duration-500 shadow-lg">
+          <div className="flex items-center justify-center gap-1 sm:gap-1.5 md:gap-2 rounded-full p-0.5 sm:p-1">
             {items.map((item) => {
               const isActive = pathname === item.href
               return (
@@ -67,7 +67,7 @@ export function NavPill() {
                     e.preventDefault()
                     if (pathname !== item.href) startTransition(item.href)
                   }}
-                  className={`flex items-center px-3.5 md:px-4 py-2 rounded-full transition-all duration-500 hover:scale-105 cursor-pointer group ${
+                  className={`flex items-center px-2.5 sm:px-3.5 md:px-4 py-1.5 sm:py-2 rounded-full transition-all duration-500 hover:scale-105 cursor-pointer group ${
                     isActive
                       ? "bg-[#161616] text-white"
                       : "bg-white/10 text-palette-stone hover:bg-[#161616] hover:text-white"
@@ -76,9 +76,14 @@ export function NavPill() {
                     transformOrigin: "center center",
                     transitionTimingFunction: "cubic-bezier(0.175, 0.885, 0.32, 2.2)",
                   }}
+                  title={item.label}
                 >
                   {item.icon}
-                  <span className="ml-2 text-xs md:text-sm font-medium tracking-wide">
+                  <span
+                    className={`ml-1.5 sm:ml-2 text-xs md:text-sm font-medium tracking-wide ${
+                      isActive ? "inline" : "hidden sm:inline"
+                    }`}
+                  >
                     {item.label}
                   </span>
                 </a>
@@ -86,13 +91,13 @@ export function NavPill() {
             })}
 
             {/* Separator */}
-            <div className="w-[1px] h-5 bg-[#161616]/20 mx-0.5 hidden sm:block" />
+            <div className="w-[1px] h-4 sm:h-5 bg-[#161616]/20 mx-0.5" />
 
             {/* Compact Vertical Glass Card Language Switcher */}
             <div className="relative">
               <button
                 onClick={() => setShowDropdown((prev) => !prev)}
-                className={`flex items-center gap-1.5 px-3 py-2 rounded-full transition-all duration-500 hover:scale-105 text-xs md:text-sm cursor-pointer select-none ${
+                className={`flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-full transition-all duration-500 hover:scale-105 text-xs md:text-sm cursor-pointer select-none ${
                   showDropdown
                     ? "bg-[#161616] text-white"
                     : "bg-white/10 text-palette-stone hover:bg-[#161616] hover:text-white"
@@ -100,7 +105,7 @@ export function NavPill() {
                 title={`Location: ${location.city ? `${location.city}, ` : ""}${location.country || ""}`}
               >
                 <span className="flex items-center">{currentLang.flag}</span>
-                <span className="font-semibold text-xs tracking-wider">{currentLang.label}</span>
+                <span className="font-semibold text-xs tracking-wider hidden sm:inline">{currentLang.label}</span>
                 <ChevronDown
                   size={14}
                   className={`transition-transform duration-300 ${showDropdown ? "rotate-180" : ""}`}
