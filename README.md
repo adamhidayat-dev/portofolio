@@ -97,3 +97,10 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to view the 
 
 **Muhamad Adam Hidayat**
 - **GitHub**: [@adamhidayat-dev](https://github.com/adamhidayat-dev)
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](file:///d:/Project/portofolio/LICENSE) - see the [LICENSE](file:///d:/Project/portofolio/LICENSE) file for details.
+
