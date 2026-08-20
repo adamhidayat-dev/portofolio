@@ -127,7 +127,7 @@ export default function About() {
       >
         <div
           ref={titleRef}
-          className="absolute top-6 left-6 md:left-12 lg:left-20 z-20 text-[#161616] text-2xl md:text-3xl tracking-widest pointer-events-none drop-shadow-md origin-center"
+          className="absolute top-5 left-4 sm:top-6 sm:left-6 md:top-8 md:left-12 lg:left-20 z-20 text-[#161616] text-xl sm:text-2xl md:text-3xl tracking-widest pointer-events-none drop-shadow-md origin-center"
           style={{ fontFamily: "var(--font-rubik-spray), 'Rubik Spray Paint', sans-serif" }}
         >
           {t("aboutTitle")}

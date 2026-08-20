@@ -54,8 +54,8 @@ export function NavPill() {
   return (
     <>
       <GlassDistortion />
-      <div className="fixed top-3 sm:top-6 left-1/2 -translate-x-1/2 z-50 max-w-[95vw]">
-        <GlassButton rounded="rounded-full" className="p-1 sm:p-1.5 transition-all duration-500 shadow-lg">
+      <div className="fixed top-5 sm:top-6 md:top-7 left-1/2 -translate-x-1/2 z-50 max-w-[95vw]">
+        <GlassButton rounded="rounded-full" className="p-1.5 sm:p-2 transition-all duration-500 shadow-lg">
           <div className="flex items-center justify-center gap-1 sm:gap-1.5 md:gap-2 rounded-full p-0.5 sm:p-1">
             {items.map((item) => {
               const isActive = pathname === item.href
@@ -67,9 +67,9 @@ export function NavPill() {
                     e.preventDefault()
                     if (pathname !== item.href) startTransition(item.href)
                   }}
-                  className={`flex items-center px-2.5 sm:px-3.5 md:px-4 py-1.5 sm:py-2 rounded-full transition-all duration-500 hover:scale-105 cursor-pointer group ${
+                  className={`flex items-center px-2.5 sm:px-3.5 md:px-4 py-1.5 sm:py-2 rounded-full transition-all duration-300 hover:scale-[1.03] cursor-pointer group ${
                     isActive
-                      ? "bg-[#161616] text-white"
+                      ? "bg-[#161616] text-white shadow-sm"
                       : "bg-white/10 text-palette-stone hover:bg-[#161616] hover:text-white"
                   }`}
                   style={{
@@ -97,9 +97,9 @@ export function NavPill() {
             <div className="relative">
               <button
                 onClick={() => setShowDropdown((prev) => !prev)}
-                className={`flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-full transition-all duration-500 hover:scale-105 text-xs md:text-sm cursor-pointer select-none ${
+                className={`flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-full transition-all duration-300 hover:scale-[1.03] text-xs md:text-sm cursor-pointer select-none ${
                   showDropdown
-                    ? "bg-[#161616] text-white"
+                    ? "bg-[#161616] text-white shadow-sm"
                     : "bg-white/10 text-palette-stone hover:bg-[#161616] hover:text-white"
                 }`}
                 title={`Location: ${location.city ? `${location.city}, ` : ""}${location.country || ""}`}
