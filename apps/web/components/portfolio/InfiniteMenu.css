@@ -1,0 +1,139 @@
+#infinite-grid-menu-canvas {
+  cursor: grab;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  outline: none;
+  display: block;
+  background: transparent;
+}
+
+#infinite-grid-menu-canvas:active {
+  cursor: grabbing;
+}
+
+.action-button {
+  position: absolute;
+  left: 50%;
+  z-index: 20;
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  background: #FEF8E8;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid rgba(254, 248, 232, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+}
+
+.action-button:hover {
+  background: #ffffff;
+}
+
+.action-button-icon {
+  user-select: none;
+  position: relative;
+  color: #161616;
+  top: 1px;
+  font-size: 22px;
+  margin: 0;
+  font-weight: 800;
+  transition: transform 0.3s ease;
+}
+
+.action-button:hover .action-button-icon {
+  transform: rotate(45deg);
+}
+
+.action-button.active {
+  bottom: 2.5em;
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.action-button.inactive {
+  bottom: -60px;
+  transform: translateX(-50%) scale(0);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.face-title {
+  user-select: none;
+  position: absolute;
+  font-weight: 900;
+  font-size: clamp(1.6rem, 3.2vw, 3rem);
+  left: 4%;
+  top: 50%;
+  max-width: 28vw;
+  color: #fef8e8;
+  font-family: var(--font-oswald), Oswald, system-ui, sans-serif;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1.1;
+  word-break: break-word;
+  z-index: 10;
+}
+
+.face-title.active {
+  opacity: 1;
+  transform: translateY(-50%);
+  pointer-events: auto;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.face-title.inactive {
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-50%) translateX(-25px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.face-description {
+  user-select: none;
+  position: absolute;
+  max-width: 220px;
+  top: 50%;
+  font-size: clamp(0.9rem, 1.2vw, 1.15rem);
+  right: 4%;
+  color: rgba(254, 248, 232, 0.8);
+  font-family: var(--font-cormorant), Cormorant Garamond, serif;
+  font-style: italic;
+  margin: 0;
+  z-index: 10;
+  text-align: right;
+  line-height: 1.4;
+}
+
+.face-description.active {
+  opacity: 1;
+  transform: translateY(-50%);
+  pointer-events: auto;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.face-description.inactive {
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-50%) translateX(25px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+@media (max-width: 1024px) {
+  .face-title {
+    font-size: clamp(1.3rem, 4vw, 2.2rem);
+    left: 4%;
+    max-width: 32vw;
+  }
+  .face-description {
+    font-size: 0.9rem;
+    right: 4%;
+    max-width: 160px;
+  }
+}

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="900" viewBox="0 0 600 900">
+  <rect width="600" height="900" fill="#161616"/>
+  <rect x="24" y="24" width="552" height="852" fill="none" stroke="#FEF8E8" stroke-opacity="0.22" stroke-width="2"/>
+  <circle cx="552" cy="48" r="10" fill="#FEF8E8" fill-opacity="0.15"/>
+  <circle cx="48" cy="852" r="10" fill="#FEF8E8" fill-opacity="0.15"/>
+
+  <!-- header -->
+  <text x="48" y="96" font-family="Arial, Helvetica, sans-serif" font-size="20" letter-spacing="6" fill="#FEF8E8" fill-opacity="0.65">CREATIVE PASS</text>
+  <text x="48" y="152" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="42" letter-spacing="2" fill="#FEF8E8">MEMBER CARD</text>
+  <line x1="48" y1="188" x2="552" y2="188" stroke="#FEF8E8" stroke-opacity="0.18" stroke-width="1"/>
+
+  <!-- monogram -->
+  <circle cx="300" cy="330" r="72" fill="#FEF8E8" fill-opacity="0.07"/>
+  <circle cx="300" cy="330" r="72" fill="none" stroke="#FEF8E8" stroke-opacity="0.3" stroke-width="2"/>
+  <text x="300" y="362" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="64" font-weight="bold" fill="#FEF8E8">MA</text>
+
+  <!-- name / role -->
+  <text x="300" y="480" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="56" font-weight="bold" fill="#FEF8E8">Muhamad Adam</text>
+  <text x="300" y="526" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="19" letter-spacing="8" fill="#FEF8E8" fill-opacity="0.55">FULL-STACK DEVELOPER</text>
+
+  <!-- info -->
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="48" y="650" font-size="16" letter-spacing="4" fill="#FEF8E8" fill-opacity="0.45">REFERENCE ID</text>
+    <text x="48" y="690" font-size="30" fill="#FEF8E8">#2026-05-31</text>
+    <line x1="48" y1="730" x2="552" y2="730" stroke="#FEF8E8" stroke-opacity="0.12" stroke-width="1"/>
+    <text x="48" y="780" font-size="16" letter-spacing="4" fill="#FEF8E8" fill-opacity="0.45">DEPARTEMENT</text>
+    <text x="48" y="820" font-size="30" fill="#FEF8E8">Creative Development</text>
+    <line x1="48" y1="860" x2="552" y2="860" stroke="#FEF8E8" stroke-opacity="0.12" stroke-width="1"/>
+  </g>
+</svg>

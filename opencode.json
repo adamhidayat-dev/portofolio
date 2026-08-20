@@ -1,0 +1,15 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "agent": {
+    "observer": {
+      "model": "opencode/gemini-3.6-flash"
+    }
+  },
+  "mcp": {
+    "image-viewer": {
+      "type": "local",
+      "command": ["node", "C:\\Users\\ktexucoder\\.config\\opencode\\mcp\\image-viewer-mcp\\dist\\index.js"],
+      "enabled": true
+    }
+  }
+}
